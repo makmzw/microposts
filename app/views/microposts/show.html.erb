@@ -1,0 +1,9 @@
+#お気に入り追加リンクの作成
+<div>
+  #お気に入り追加した後表示を切り替える
+  <% if current_user.likes.find_by(micropost_id: @micropost.id) %>
+    <% link_to 'お気に入り解除', unfavorite_path(@micropost.id),method: :delete %>
+  <% else %>
+  <%= link_to "お気に入り追加”, favorite_path(@micropost.id), method: :post %>
+  <% end %>
+</div>
